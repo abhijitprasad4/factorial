@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'factorial/main.css' %}">
+    <title>Factorial Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+{% if fact  %}
+ <body style="background-color:#262626">
+   <div class="alert alert-success " role="alert">
+       Factorial of {{number}} is {{fact}}
+    </div>
+ </body>
+{% else %}
+    <body style="background-color:#262626">
+
+    <section class="container-fluid bg">
+        <section class="row justify-content-center">
+            <selection class="col-12 col-sm-6 col-md-3">
+                <form action="" class="form-container" method="get">
+                    <div class="alert alert-info center-block" role="alert">
+                        Enter below Your Number for it's Factorial
+                    </div>
+                        {% csrf_token %}
+                    <div class="container">
+                    <label for="number">Number</label>
+                    <input type="number" class="form-control" placeholder="Enter Number" name="number" required>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </selection>
+        </section>
+    </section>
+    </body>
+{% endif %}
+</html>
